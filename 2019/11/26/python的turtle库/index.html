@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>python的turtle库 - Dengkang</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="turtle库的使用画笔移动命令turtle.home()    将turtle移动到起点（0,0）和向东turtle.speed(speed)    画笔绘制的速度范围[0,10]整数turtle,"> 
+    <meta name="author" content="Dengkang"> 
+    <link rel="alternative" href="atom.xml" title="Dengkang" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Dengkang</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" target="_blank" rel="noopener" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">python的turtle库</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" target="_blank" rel="noopener" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;" target="_blank" rel="noopener"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">python的turtle库</h1>
+        <div class="stuff">
+            <span>十一月 26, 2019</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h2 id="turtle库的使用"><a href="#turtle库的使用" class="headerlink" title="turtle库的使用"></a>turtle库的使用</h2><p><strong>画笔移动命令</strong><br>turtle.home()    将turtle移动到起点（0,0）和向东<br>turtle.speed(speed)    画笔绘制的速度范围[0,10]整数<br>turtle.forward(distance)    向当前画笔方向移动distance像素长<br>turtle.backward(distance)    向当前画笔相反方向移动distance像素长度<br>turtle.right(degree)    顺时针移动degree°<br>turtle.left(degree)    逆时针移动degree°<br>turtle.pendown()    移动时绘制图形放下笔,,默认绘制<br>turtle.penup()    移动时不绘制图形,提起笔，用于另起一个地方绘制时用<br>turtle.circle(r,extent,step)    绘制一个指定半径、弧度范围、阶数(正多边形)的圆<br>turtle.dot(diameter,color)    绘制一个指定直径和颜色的圆</p>
+<ul>
+<li><strong>画笔控制命令</strong></li>
+<li>turtle.pencolor()    画笔颜色<br>turtle.pensize(width)    画笔宽度（绘制图形时的宽度）<br>turtle.color(color1, color2)    同时设置pencolor=color1, fillcolor=color2<br>turtle.filling()    返回当前是否在填充状态<br>turtle.begin_fill()    准备开始填充图形<br>turtle.end_fill()    填充完成<br>turtle.hideturtle()    隐藏画笔的turtle形状<br>turtle.showturtle()    显示画笔的turtle形状</li>
+</ul>
+<p><strong>全局控制命令</strong><br>turtle.clear()    清空turtle窗口，但是turtle的位置和状态不会改变<br>turtle.reset()    清空窗口，重置turtle状态为起始状态<br>turtle.undo()    取消最后一个图的操作<br>turtle.isvisible()    返回当前turtle是否可见<br>turtle.stamp()    复制当前图形<br>turtle.write(s , [font=(“font-name”,font_size,”font_type”)])    写文本，s为文本内容，font是字体的参数，分别为字体名称，大小和类型；font为可选项，font参数也是可选项。<br><strong>其他简单命令</strong><br>turtle.mainloop()或turtle.done()    启动事件循环 -调用Tkinter的mainloop函数。必须是乌龟图形程序中的最后一个语句。<br>turtle.mode(mode=None)    设置乌龟模式（“standard”，“logo(向北或向上)”或“world()”）并执行重置。如果没有给出模式，则返回当前模式。<br>turtle.undo()    取消最后一个图的操作<br>turtle.isvisible()    返回当前turtle是否可见<br>turtle.stamp()    复制当前图形<br>turtle.write(s , [font=(“font-name”,font_size,”font_type”)])    写文本，s为文本内容，font是字体的参数，分别为字体名称，大小和类型；font为可选项，font参数也是可选项<br>当然接下来将两个示例代码给大家看一下。<br><strong>皮卡丘效果</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> *</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tree</span><span class="params">(n, l)</span>:</span></span><br><span class="line">    setup(<span class="number">1000</span>, <span class="number">800</span>)</span><br><span class="line">    pd()  <span class="comment"># 下笔</span></span><br><span class="line">    <span class="comment"># 阴影效果</span></span><br><span class="line">    t = cos(radians(heading() + <span class="number">45</span>)) / <span class="number">8</span> + <span class="number">0.25</span></span><br><span class="line">    pencolor(t, t, t)</span><br><span class="line">    pensize(n / <span class="number">3</span>)</span><br><span class="line">    forward(l)  <span class="comment"># 画树枝</span></span><br><span class="line">    <span class="keyword">if</span> n &gt; <span class="number">0</span>:</span><br><span class="line">        b = random() * <span class="number">15</span> + <span class="number">10</span>  <span class="comment"># 右分支偏转角度</span></span><br><span class="line">        c = random() * <span class="number">15</span> + <span class="number">10</span>  <span class="comment"># 左分支偏转角度</span></span><br><span class="line">        d = l * (random() * <span class="number">0.25</span> + <span class="number">0.7</span>)  <span class="comment"># 下一个分支的长度</span></span><br><span class="line">        <span class="comment"># 右转一定角度，画右分支</span></span><br><span class="line">        right(b)</span><br><span class="line">        tree(n - <span class="number">1</span>, d)</span><br><span class="line">        <span class="comment"># 左转一定角度，画左分支</span></span><br><span class="line">        left(b + c)</span><br><span class="line">        tree(n - <span class="number">1</span>, d)</span><br><span class="line">        <span class="comment"># 转回来</span></span><br><span class="line">        right(c)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 画叶子</span></span><br><span class="line">        right(<span class="number">90</span>)</span><br><span class="line">        n = cos(radians(heading() - <span class="number">45</span>)) / <span class="number">4</span> + <span class="number">0.5</span></span><br><span class="line">        pencolor(n, n * <span class="number">0.8</span>, n * <span class="number">0.8</span>)</span><br><span class="line">        circle(<span class="number">3</span>)</span><br><span class="line">        left(<span class="number">90</span>)</span><br><span class="line">        <span class="comment"># 添加0.3倍的飘落叶子</span></span><br><span class="line">        <span class="keyword">if</span> (random() &gt; <span class="number">0.7</span>):</span><br><span class="line">            pu()</span><br><span class="line">            <span class="comment"># 飘落</span></span><br><span class="line">            t = heading()</span><br><span class="line">            an = <span class="number">-40</span> + random() * <span class="number">40</span></span><br><span class="line">            setheading(an)</span><br><span class="line">            dis = int(<span class="number">800</span> * random() * <span class="number">0.5</span> + <span class="number">400</span> * random() * <span class="number">0.3</span> + <span class="number">200</span> * random() * <span class="number">0.2</span>)</span><br><span class="line">            forward(dis)</span><br><span class="line">            setheading(t)</span><br><span class="line">            <span class="comment"># 画叶子</span></span><br><span class="line">            pd()</span><br><span class="line">            right(<span class="number">90</span>)</span><br><span class="line">            n = cos(radians(heading() - <span class="number">45</span>)) / <span class="number">4</span> + <span class="number">0.5</span></span><br><span class="line">            pencolor(n * <span class="number">0.5</span> + <span class="number">0.5</span>, <span class="number">0.4</span> + n * <span class="number">0.4</span>, <span class="number">0.4</span> + n * <span class="number">0.4</span>)</span><br><span class="line">            circle(<span class="number">2</span>)</span><br><span class="line">            left(<span class="number">90</span>)</span><br><span class="line">            pu()</span><br><span class="line">            <span class="comment"># 返回</span></span><br><span class="line">            t = heading()</span><br><span class="line">            setheading(an)</span><br><span class="line">            backward(dis)</span><br><span class="line">            setheading(t)</span><br><span class="line">    pu()</span><br><span class="line">    backward(l)  <span class="comment"># 退回</span></span><br><span class="line">bgcolor(<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>)  <span class="comment"># 背景色</span></span><br><span class="line">ht()  <span class="comment"># 隐藏turtle</span></span><br><span class="line">speed(<span class="number">0</span>)  <span class="comment"># 速度，1-10渐进，0最快</span></span><br><span class="line">tracer(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">pu()  <span class="comment"># 抬笔</span></span><br><span class="line">backward(<span class="number">100</span>)</span><br><span class="line">left(<span class="number">90</span>)  <span class="comment"># 左转90度</span></span><br><span class="line">pu()  <span class="comment"># 抬笔</span></span><br><span class="line">backward(<span class="number">300</span>)  <span class="comment"># 后退300</span></span><br><span class="line">tree(<span class="number">12</span>, <span class="number">100</span>)  <span class="comment"># 递归7层</span></span><br><span class="line">done()</span><br></pre></td></tr></table></figure>
+<p><strong>樱花树代码</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> turtle <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> *</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tree</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        setup(<span class="number">1000</span>, <span class="number">700</span>)</span><br><span class="line">        bgcolor(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)  <span class="comment"># 背景色</span></span><br><span class="line">        <span class="comment"># ht()  # 隐藏turtle</span></span><br><span class="line">        speed(<span class="number">10</span>)  <span class="comment"># 速度 1-10渐进，0 最快</span></span><br><span class="line">        <span class="comment"># tracer(1, 100)    # 设置绘图屏幕刷新频率，参数1设置在正常刷新频次的第参数1次刷新，参数2设置每次刷新的时延</span></span><br><span class="line">        tracer(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">        pu()  <span class="comment"># 抬笔</span></span><br><span class="line">        backward(<span class="number">100</span>)</span><br><span class="line">        <span class="comment"># 保证笔触箭头方向始终不向下，此处使其左转90度，而不是右转</span></span><br><span class="line">        left(<span class="number">90</span>)  <span class="comment"># 左转90度</span></span><br><span class="line">        backward(<span class="number">300</span>)  <span class="comment"># 后退300</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tree</span><span class="params">(self, n, l)</span>:</span></span><br><span class="line">        pd()  <span class="comment"># 下笔</span></span><br><span class="line">        <span class="comment"># 阴影效果</span></span><br><span class="line">        t = cos(radians(heading() + <span class="number">45</span>)) / <span class="number">8</span> + <span class="number">0.25</span></span><br><span class="line">        pencolor(t, t, t)</span><br><span class="line">        pensize(n / <span class="number">1.2</span>)</span><br><span class="line">        forward(l)  <span class="comment"># 画树枝</span></span><br><span class="line">        <span class="keyword">if</span> n &gt; <span class="number">0</span>:</span><br><span class="line">            b = random() * <span class="number">15</span> + <span class="number">10</span>  <span class="comment"># 右分支偏转角度</span></span><br><span class="line">            c = random() * <span class="number">15</span> + <span class="number">10</span>  <span class="comment"># 左分支偏转角度</span></span><br><span class="line">            d = l * (random() * <span class="number">0.25</span> + <span class="number">0.7</span>)  <span class="comment"># 下一个分支的长度</span></span><br><span class="line">            <span class="comment"># 右转一定角度,画右分支</span></span><br><span class="line">            right(b)</span><br><span class="line">            self.tree(n - <span class="number">1</span>, d)</span><br><span class="line">            <span class="comment"># 左转一定角度，画左分支</span></span><br><span class="line">            left(b + c)</span><br><span class="line">            self.tree(n - <span class="number">1</span>, d)</span><br><span class="line">            <span class="comment"># 转回来</span></span><br><span class="line">            right(c)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 画叶子</span></span><br><span class="line">            right(<span class="number">90</span>)</span><br><span class="line">            n = cos(radians(heading() - <span class="number">45</span>)) / <span class="number">4</span> + <span class="number">0.5</span></span><br><span class="line">            pencolor(n, n * <span class="number">0.8</span>, n * <span class="number">0.8</span>)</span><br><span class="line">            fillcolor(n, n * <span class="number">0.8</span>, n * <span class="number">0.8</span>)</span><br><span class="line">            begin_fill()</span><br><span class="line">            circle(<span class="number">3</span>)</span><br><span class="line">            left(<span class="number">90</span>)</span><br><span class="line">            end_fill()</span><br><span class="line">            <span class="comment"># 添加0.3倍的飘落叶子</span></span><br><span class="line">            <span class="keyword">if</span> random() &gt; <span class="number">0.7</span>:</span><br><span class="line">                pu()</span><br><span class="line">                <span class="comment"># 飘落</span></span><br><span class="line">                t = heading()</span><br><span class="line">                an = <span class="number">-40</span> + random() * <span class="number">40</span></span><br><span class="line">                setheading(an)</span><br><span class="line">                dis = int(<span class="number">800</span> * random() * <span class="number">0.5</span> + <span class="number">400</span> * random() * <span class="number">0.3</span> + <span class="number">200</span> * random() * <span class="number">0.2</span>)</span><br><span class="line">                forward(dis)</span><br><span class="line">                setheading(t)</span><br><span class="line">                <span class="comment"># 画叶子</span></span><br><span class="line">                pd()</span><br><span class="line">                right(<span class="number">90</span>)</span><br><span class="line">                n = cos(radians(heading() - <span class="number">45</span>)) / <span class="number">4</span> + <span class="number">0.5</span></span><br><span class="line">                pencolor(n * <span class="number">0.5</span> + <span class="number">0.5</span>, <span class="number">0.4</span> + n * <span class="number">0.4</span>, <span class="number">0.4</span> + n * <span class="number">0.4</span>)</span><br><span class="line">                fillcolor(n, n * <span class="number">0.8</span>, n * <span class="number">0.8</span>)</span><br><span class="line">                begin_fill()</span><br><span class="line">                circle(<span class="number">2</span>)</span><br><span class="line">                left(<span class="number">90</span>)</span><br><span class="line">                end_fill()</span><br><span class="line">                pu()</span><br><span class="line">                <span class="comment"># 返回</span></span><br><span class="line">                t = heading()</span><br><span class="line">                setheading(an)</span><br><span class="line">                backward(dis)</span><br><span class="line">                setheading(t)</span><br><span class="line">                <span class="comment"># pass</span></span><br><span class="line">        pu()</span><br><span class="line">        backward(l)  <span class="comment"># 退回</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    tree = Tree()</span><br><span class="line">    tree.tree(<span class="number">12</span>, <span class="number">100</span>)  <span class="comment"># 递归7层</span></span><br><span class="line">    done()</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<p><strong>pyqt5和tkinter</strong><br>这上面的只是简单的turtle 库和数学函数实现，要想有更好的设计,就要运用界面设计的pyqt5,tkinter库一起使用.<img src="https://img-blog.csdnimg.cn/20191126102842646.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTc0MzQ2Ng==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
