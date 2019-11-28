@@ -154,6 +154,116 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-java数据结构与算法心得" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/28/java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%BF%83%E5%BE%97/">java数据结构与算法心得</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/28/java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%BF%83%E5%BE%97/" class="archive-article-date">
+  	<time datetime="2019-11-28T12:15:05.609Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
+</a>
+        
+      </header>
+    
+	<!-- article自身代码 -->
+<header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/28/java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%BF%83%E5%BE%97/">java数据结构与算法心得</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/28/java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%BF%83%E5%BE%97/" class="archive-article-date">
+  	<time datetime="2019-11-28T12:15:05.609Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
+</a>
+        
+       
+	<!-- 添加代码 -->
+	
+      </header>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="java实现数据结构"><a href="#java实现数据结构" class="headerlink" title="java实现数据结构"></a>java实现数据结构</h2><p>在 java中，数组是用来存放同一数据的集合，注意只能存放一种数据类型（object类型数组除外）接下来，我们看一个简单示例。<br><strong>无序数组</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Array</span> </span>&#123;</span><br><span class="line">     </span><br><span class="line">      <span class="keyword">private</span> String [] strArray;</span><br><span class="line">      <span class="keyword">private</span> <span class="keyword">int</span> length = <span class="number">0</span>;       <span class="comment">//数组元素个数</span></span><br><span class="line">            </span><br><span class="line">      <span class="comment">//构造方法，传入数组最大长度</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">Array</span><span class="params">(<span class="keyword">int</span> max)</span></span>&#123;</span><br><span class="line">             strArray = <span class="keyword">new</span> String [max];</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//检测数组是否包含某个元素，如果存在返回其下标，不存在则返回-1</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">contains</span><span class="params">(String target)</span></span>&#123;</span><br><span class="line">             <span class="keyword">int</span> index = -<span class="number">1</span>;</span><br><span class="line">             <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;length;i++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(strArray[i].equals(target))&#123;</span><br><span class="line">                           index = i;</span><br><span class="line">                           <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">             &#125;</span><br><span class="line">             <span class="keyword">return</span> index;</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//插入</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(String elem)</span> </span>&#123;</span><br><span class="line">             strArray[length] = elem;</span><br><span class="line">             length++;</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//删除某个指定的元素值，删除成功则返回true，否则返回false</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">delete</span><span class="params">(String target)</span></span>&#123;</span><br><span class="line">             <span class="keyword">int</span> index = -<span class="number">1</span>;</span><br><span class="line">             <span class="keyword">if</span>((index = contains(target)) !=-<span class="number">1</span>)&#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> i=index;i&lt;length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">                           <span class="comment">//删除元素之后的所有元素前移一位</span></span><br><span class="line">                           strArray[i] =strArray[i+<span class="number">1</span>]; </span><br><span class="line">                    &#125;</span><br><span class="line">                    length--;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">             &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">             &#125;</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//列出所有元素</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>&#123;</span><br><span class="line">             <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;length;i++)&#123;</span><br><span class="line">                    System.out.print(strArray[i]+<span class="string">"\t"</span>);</span><br><span class="line">             &#125;</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>无序数组有点：插入快，可以较快的存取。</li>
+<li>缺点：查找慢，删除慢，大小固定。</li>
+</ul>
+<p><strong>有序数组</strong><br>有序数组是有一定规律的，用二分查找很方便，但其容易浪费内存，插入时，要移动后面所有元素的下标，这无疑很麻烦，当然，其时间复杂度是O(n),</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrderArray</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span>[] intArray;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> length = <span class="number">0</span>; <span class="comment">// 数组元素个数</span></span><br><span class="line"> </span><br><span class="line">	<span class="comment">// 构造方法，传入数组最大长度</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">OrderArray</span><span class="params">(<span class="keyword">int</span> max)</span> </span>&#123;</span><br><span class="line">		intArray = <span class="keyword">new</span> <span class="keyword">int</span>[max];</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">// 用二分查找法定位某个元素，如果存在返回其下标，不存在则返回-1</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> lowerBound = <span class="number">0</span>; <span class="comment">// 搜索段最小元素的小标</span></span><br><span class="line">		<span class="keyword">int</span> upperBound = length - <span class="number">1</span>; <span class="comment">// 搜索段最大元素的下标</span></span><br><span class="line">		<span class="keyword">int</span> curIn; <span class="comment">// 当前检测元素的下标</span></span><br><span class="line"> </span><br><span class="line">		<span class="keyword">if</span> (upperBound &lt; <span class="number">0</span>) &#123; <span class="comment">// 如果数组为空，直接返回-1</span></span><br><span class="line">			<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line"> </span><br><span class="line">		<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">			curIn = (lowerBound + upperBound) / <span class="number">2</span>;</span><br><span class="line"> </span><br><span class="line">			<span class="keyword">if</span> (target == intArray[curIn]) &#123;</span><br><span class="line">				<span class="keyword">return</span> curIn;</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (curIn == lowerBound) &#123; <span class="comment">// 在当前下标与搜索段的最小下标重合时，代表搜索段中只包含1个或2个元素</span></span><br><span class="line">				<span class="comment">// 既然走到该分支，证明上一个if分支不满足，即目标元素不等于低位元素</span></span><br><span class="line">				<span class="keyword">if</span> (target == intArray[upperBound]) &#123; <span class="comment">// 等于高位元素，返回</span></span><br><span class="line">					<span class="keyword">return</span> upperBound;</span><br><span class="line">				&#125; <span class="keyword">else</span> &#123; <span class="comment">// 高位元素也不等于目标元素，证明数组中没有该元素，搜索结束</span></span><br><span class="line">					<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;<span class="comment">// 搜索段中的元素至少有三个，且当前元素不等于目标元素</span></span><br><span class="line">				<span class="keyword">if</span> (intArray[curIn] &lt; target) &#123;</span><br><span class="line">					<span class="comment">// 如果当前元素小于目标元素，则将下一个搜索段的最小下标置为当前元素的下标</span></span><br><span class="line">					lowerBound = curIn;</span><br><span class="line">				&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">					<span class="comment">// 如果当前元素大于目标元素，则将下一个搜索段的最大下标置为当前元素的下标</span></span><br><span class="line">					upperBound = curIn;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">// 插入</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> elem)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> location = <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">		<span class="comment">// 判断应插入位置的下标</span></span><br><span class="line">		<span class="keyword">for</span> (; location &lt; length; location++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (intArray[location] &gt; elem)</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// System.out.println(location);</span></span><br><span class="line">		<span class="comment">// 将插入下标之后的所有元素后移一位</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = length; i &gt; location; i--) &#123;</span><br><span class="line">			intArray[i] = intArray[i - <span class="number">1</span>];</span><br><span class="line">		&#125;</span><br><span class="line"> </span><br><span class="line">		<span class="comment">// 插入元素</span></span><br><span class="line">		intArray[location] = elem;</span><br><span class="line"> </span><br><span class="line">		length++;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">// 删除某个指定的元素值，删除成功则返回true，否则返回false</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">delete</span><span class="params">(<span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> index = -<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> ((index = find(target)) != -<span class="number">1</span>) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = index; i &lt; length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">				<span class="comment">// 删除元素之后的所有元素前移一位</span></span><br><span class="line">				intArray[i] = intArray[i + <span class="number">1</span>];</span><br><span class="line">			&#125;</span><br><span class="line">			length--;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">// 列出所有元素</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">			System.out.print(intArray[i] + <span class="string">"\t"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		OrderArray orderArray = <span class="keyword">new</span> OrderArray(<span class="number">4</span>);</span><br><span class="line"> </span><br><span class="line">		orderArray.insert(<span class="number">3</span>);</span><br><span class="line">		orderArray.insert(<span class="number">4</span>);</span><br><span class="line">		orderArray.insert(<span class="number">6</span>);</span><br><span class="line">		orderArray.insert(<span class="number">8</span>);</span><br><span class="line"> </span><br><span class="line">		<span class="keyword">int</span> i = orderArray.find(<span class="number">8</span>);</span><br><span class="line">		System.out.println(<span class="string">"在队列中的位置是"</span> + i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>查找高，插入删除慢。<br><strong>栈的实现</strong><br>对栈有出栈和入栈操作，当然有很多算法都用到了栈,比如广度优先和深度优先算法，其次栈的存储结构也很重要。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stack</span> </span>&#123;</span><br><span class="line">      <span class="keyword">private</span> <span class="keyword">int</span> size;                 <span class="comment">//栈的大小</span></span><br><span class="line">      <span class="keyword">private</span> <span class="keyword">int</span> top;                  <span class="comment">//栈顶元素的下标</span></span><br><span class="line">      <span class="keyword">private</span> <span class="keyword">int</span> [] stackArray;   <span class="comment">//栈的容器</span></span><br><span class="line">     </span><br><span class="line">      <span class="comment">//构造函数</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">Stack</span><span class="params">(<span class="keyword">int</span> size)</span></span>&#123;</span><br><span class="line">             stackArray = <span class="keyword">new</span> <span class="keyword">int</span> [size];</span><br><span class="line">             top = -<span class="number">1</span>; <span class="comment">//初始化栈的时候，栈内无元素，栈顶下标设为-1</span></span><br><span class="line">             <span class="keyword">this</span>.size = size;</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//入栈，同时，栈顶元素的下标加一</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> elem)</span></span>&#123;</span><br><span class="line">             stackArray[++top] = elem; <span class="comment">//插入栈顶</span></span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//出栈，删除栈顶元素，同时，栈顶元素的下标减一</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span></span>&#123;</span><br><span class="line">             <span class="keyword">return</span> stackArray[top--];</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//查看栈顶元素，但不删除</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">peek</span><span class="params">()</span></span>&#123;</span><br><span class="line">             <span class="keyword">return</span> stackArray[top];</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//判空</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>&#123;</span><br><span class="line">             <span class="keyword">return</span> (top == -<span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//判满</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isFull</span><span class="params">()</span></span>&#123;</span><br><span class="line">             <span class="keyword">return</span> (top == size-<span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>栈的原则是先进后出。栈通常用于解析某种类型的文本串。通常，文本串是用计算机语言写的代码行，而解析它们的程序就是编译器</p>
+<p>下面我们来用栈来实现一个经典的应用：分隔符匹配。想一下在Eclipse编程时，如果我们写的代码中如果多了一个“{”，后者少了一个“}”，或者括号的顺序错乱，都会报错。接下来我们就用栈来模拟这种分隔符匹配</p>
+<p>分隔符匹配程序从字符串中不断地读取程序，每次读取一个字符，若发现它是左分隔符（{、[、(），将它压入栈中。当读到一个右分隔符时（)、]、}），弹出栈顶元素，并且查看它是否和该右分隔符匹配。如果它们不匹配，则程序报错。如果到最后一直存在着没有被匹配的分隔符，程序也报错</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stack</span> </span>&#123;</span><br><span class="line">      <span class="keyword">private</span> <span class="keyword">int</span> size;                 <span class="comment">//栈的大小</span></span><br><span class="line">      <span class="keyword">private</span> <span class="keyword">int</span> top;                  <span class="comment">//栈顶元素的下标</span></span><br><span class="line">      <span class="keyword">private</span> <span class="keyword">char</span> [] stackArray;       <span class="comment">//栈的容器</span></span><br><span class="line">     </span><br><span class="line">      <span class="comment">//构造函数</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">Stack</span><span class="params">(<span class="keyword">int</span> size)</span></span>&#123;</span><br><span class="line">             stackArray = <span class="keyword">new</span> <span class="keyword">char</span> [size];</span><br><span class="line">             top = -<span class="number">1</span>; <span class="comment">//初始化栈的时候，栈内无元素，栈顶下标设为-1</span></span><br><span class="line">             <span class="keyword">this</span>.size = size;</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//入栈，同时，栈顶元素的下标加一</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">char</span> elem)</span></span>&#123;</span><br><span class="line">             stackArray[++top] = elem; <span class="comment">//插入栈顶</span></span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//出栈，删除栈顶元素，同时，栈顶元素的下标减一</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">char</span> <span class="title">pop</span><span class="params">()</span></span>&#123;</span><br><span class="line">             <span class="keyword">return</span> stackArray[top--];</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//查看栈顶元素，但不删除</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">char</span> <span class="title">peek</span><span class="params">()</span></span>&#123;</span><br><span class="line">             <span class="keyword">return</span> stackArray[top];</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//判空</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>&#123;</span><br><span class="line">             <span class="keyword">return</span> (top == -<span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//判满</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isFull</span><span class="params">()</span></span>&#123;</span><br><span class="line">             <span class="keyword">return</span> (top == size-<span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来测试类的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">            </span><br><span class="line">             System.out.println(<span class="string">"输入需要检测的字符串："</span>);</span><br><span class="line">             String str = getString();</span><br><span class="line">             BrecketChecker checker = newBrecketChecker(str);</span><br><span class="line">             checker.check();</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getString</span><span class="params">()</span></span>&#123;</span><br><span class="line">             String str = <span class="string">""</span>;</span><br><span class="line">             <span class="keyword">try</span>&#123;</span><br><span class="line">                    InputStreamReader reader =<span class="keyword">new</span> InputStreamReader(System.in);</span><br><span class="line">                    BufferedReader bReader = <span class="keyword">new</span> BufferedReader(reader);</span><br><span class="line">                    str = bReader.readLine();</span><br><span class="line">             &#125;<span class="keyword">catch</span>(IOException e)&#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">             &#125;</span><br><span class="line">             <span class="keyword">return</span> str;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>队列的操作</strong><br>队列的原则是先进先出。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Queue</span> </span>&#123;</span><br><span class="line">     </span><br><span class="line">      <span class="keyword">private</span> <span class="keyword">int</span> [] queArray;</span><br><span class="line">      <span class="keyword">private</span> <span class="keyword">int</span> maxSize;</span><br><span class="line">      <span class="keyword">public</span> <span class="keyword">int</span> front;   <span class="comment">//存储队头元素的下标</span></span><br><span class="line">      <span class="keyword">public</span> <span class="keyword">int</span> rear;    <span class="comment">//存储队尾元素的下标</span></span><br><span class="line">      <span class="keyword">private</span> <span class="keyword">int</span> length; <span class="comment">//队列长度</span></span><br><span class="line">     </span><br><span class="line">      <span class="comment">//构造方法，初始化队列</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">Queue</span><span class="params">(<span class="keyword">int</span> maxSize)</span></span>&#123;</span><br><span class="line">             <span class="keyword">this</span>.maxSize = maxSize;</span><br><span class="line">             queArray = <span class="keyword">new</span> <span class="keyword">int</span> [maxSize];</span><br><span class="line">             front = <span class="number">0</span>;</span><br><span class="line">             rear = -<span class="number">1</span>;</span><br><span class="line">             length = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//插入</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> elem)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">             <span class="keyword">if</span>(isFull())&#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"队列已满，不能进行插入操作！"</span>);</span><br><span class="line">             &#125;</span><br><span class="line">             <span class="comment">//如果队尾指针已到达数组的末端，插入到数组的第一个位置</span></span><br><span class="line">             <span class="keyword">if</span>(rear == maxSize-<span class="number">1</span>)&#123;</span><br><span class="line">                    rear = -<span class="number">1</span>;</span><br><span class="line">             &#125;</span><br><span class="line">             queArray[++rear] = elem;</span><br><span class="line">             length++;</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//移除</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">remove</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">             <span class="keyword">if</span>(isEmpty())&#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"队列为空，不能进行移除操作！"</span>);</span><br><span class="line">             &#125;</span><br><span class="line">             <span class="keyword">int</span> elem = queArray[front++];</span><br><span class="line">             <span class="comment">//如果队头指针已到达数组末端，则移到数组第一个位置</span></span><br><span class="line">             <span class="keyword">if</span>(front == maxSize)&#123;</span><br><span class="line">                    front = <span class="number">0</span>;</span><br><span class="line">             &#125;</span><br><span class="line">             length--;</span><br><span class="line">             returnelem;</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//查看队头元素</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">peek</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">             <span class="keyword">if</span>(isEmpty())&#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"队列内没有元素！"</span>);</span><br><span class="line">             &#125;</span><br><span class="line">             <span class="keyword">return</span> queArray[front];</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//获取队列长度</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>&#123;</span><br><span class="line">             <span class="keyword">return</span> length;</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//判空</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>&#123;</span><br><span class="line">             <span class="keyword">return</span> (length == <span class="number">0</span>);</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//判满</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isFull</span><span class="params">()</span></span>&#123;</span><br><span class="line">             <span class="keyword">return</span> (length == maxSize);</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还有一种称为双端队列的数据结构，队列的每一端都可以进行插入和移除操作。</p>
+<p>其实双端队列是队列和栈的综合体。如果限制双端队列的一段只能插入，而另一端只能移除，就变成了平常意义上的队列；如果限制双端队列只能在一端进行插入和移除，就变成了栈。<br><strong>优先级队列</strong><br>像普通队列一样，优先级队列有一个队头和一个队尾，并且也是从队头移除数据，从队尾插入数据，不同的是，在优先级队列中，数据项按关键字的值排序，数据项插入的时候会按照顺序插入到合适的位置</p>
+<p>除了可以快速访问优先级最高的数据项，优先级队列还应该可以实现相当快的插入，因此，优先级队列通常使用一种称为堆的数据结构来实现。在下例中，简便起见，我们仍然使用数组来实现</p>
+<p>在数据项个数比较少，或不太关心速度的情况下，用数组实现优先级队列还可以满足要求，如果数据项很多，或对速度要求很高，采用堆是更好的选择</p>
+<p>优先级队列的实现跟上面普通队列的实现有很大的区别。</p>
+<p>优先级队列的插入本来就需要移动元素来找到应该插入的位置，所以循环队列那种不需要移动元素的优势就不太明显了。在下例中，没有设置队头和队尾指针，而是使数组的第一个元素永远是队尾，数组的最后一个元素永远是队头，为什么不是相反的呢？因为队头有移除操作，所以将队头放在数组的末端，便于移除，如果放在首段，每次移除队头都需要将队列向前移动</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PriorityQueue</span> </span>&#123;</span><br><span class="line">     </span><br><span class="line">      <span class="keyword">private</span> <span class="keyword">int</span> [] queArray;</span><br><span class="line">      <span class="keyword">private</span> <span class="keyword">int</span> maxSize;</span><br><span class="line">      <span class="keyword">private</span> <span class="keyword">int</span> length; <span class="comment">//队列长度</span></span><br><span class="line">      <span class="keyword">private</span> <span class="keyword">int</span> referencePoint;  <span class="comment">//基准点</span></span><br><span class="line">     </span><br><span class="line">      <span class="comment">//构造方法，初始化队列</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">PriorityQueue</span><span class="params">(<span class="keyword">int</span> maxSize,intreferencePoint)</span></span>&#123;</span><br><span class="line">             <span class="keyword">this</span>.maxSize= maxSize;</span><br><span class="line">             <span class="keyword">this</span>.referencePoint =referencePoint;</span><br><span class="line">             queArray = <span class="keyword">new</span> <span class="keyword">int</span> [maxSize];</span><br><span class="line">             length = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//插入</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> elem)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">             <span class="keyword">if</span>(isFull())&#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"队列已满，不能进行插入操作！"</span>);</span><br><span class="line">             &#125;</span><br><span class="line">            </span><br><span class="line">             <span class="comment">//如果队列为空，插入到数组的第一个位置</span></span><br><span class="line">             <span class="keyword">if</span>(length == <span class="number">0</span>)&#123;</span><br><span class="line">                    queArray[length++] = elem;</span><br><span class="line">             &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">int</span> i;</span><br><span class="line">                    <span class="keyword">for</span>(i=length;i&gt;<span class="number">0</span>;i--)&#123;</span><br><span class="line">                          </span><br><span class="line">                           <span class="keyword">int</span> dis =Math.abs(elem-referencePoint);  <span class="comment">//待插入元素的距离</span></span><br><span class="line">                           <span class="keyword">int</span> curDis =Math.abs(queArray[i-<span class="number">1</span>]-referencePoint); <span class="comment">//当前元素的距离</span></span><br><span class="line">                          </span><br><span class="line">                           <span class="comment">//将比插入元素优先级高的元素后移一位</span></span><br><span class="line">                           <span class="keyword">if</span>(dis&gt;= curDis)&#123;</span><br><span class="line">                                  queArray[i] =queArray[i-<span class="number">1</span>];</span><br><span class="line">                           &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                                  <span class="keyword">break</span>;</span><br><span class="line">                           &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    queArray[i] = elem;</span><br><span class="line">                    length++;</span><br><span class="line">             &#125;</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//移除</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">remove</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">             <span class="keyword">if</span>(isEmpty())&#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"队列为空，不能进行移除操作！"</span>);</span><br><span class="line">             &#125;</span><br><span class="line">             <span class="keyword">int</span> elem = queArray[--length];</span><br><span class="line">             <span class="keyword">return</span> elem;</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//查看队头元素</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">peek</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">             <span class="keyword">if</span>(isEmpty())&#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"队列内没有元素！"</span>);</span><br><span class="line">             &#125;</span><br><span class="line">             <span class="keyword">return</span> queArray[length-<span class="number">1</span>];</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//返回队列长度</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>&#123;</span><br><span class="line">             <span class="keyword">return</span> length;</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//判空</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>&#123;</span><br><span class="line">             <span class="keyword">return</span> (length == <span class="number">0</span>);</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="comment">//判满</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isFull</span><span class="params">()</span></span>&#123;</span><br><span class="line">             <span class="keyword">return</span> (length == maxSize);</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/28/java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%BF%83%E5%BE%97/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python的turtle库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -808,234 +918,6 @@
 
 
   
-    <article id="post-changxi" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/23/changxi/">changxi</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/23/changxi/" class="archive-article-date">
-  	<time datetime="2019-11-23T03:41:28.607Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-23</time>
-</a>
-        
-      </header>
-    
-	<!-- article自身代码 -->
-<header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/23/changxi/">changxi</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/23/changxi/" class="archive-article-date">
-  	<time datetime="2019-11-23T03:41:28.607Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-23</time>
-</a>
-        
-       
-	<!-- 添加代码 -->
-	
-      </header>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>@<a href="����д�Զ���Ŀ¼����">TOC</a></p>
-<h1 id="��ӭʹ��Markdown�༭��"><a href="#��ӭʹ��Markdown�༭��" class="headerlink" title="��ӭʹ��Markdown�༭��"></a>��ӭʹ��Markdown�༭��</h1><p>��ã� �������һ��ʹ�� <strong>Markdown�༭��</strong> ��չʾ�Ļ�ӭҳ���������ѧϰ���ʹ��Markdown�༭��, ������ϸ�Ķ���ƪ���£��˽�һ��Markdown�Ļ����﷨֪ʶ��</p>
-<h2 id="�µĸi�"><a href="#�µĸi�" class="headerlink" title="�µĸı�"></a>�µĸı�</h2><p>���Ƕ�Markdown�༭��������һЩ������չ���﷨֧�֣����˱�׼��Markdown�༭�����ܣ��������������¼����¹��ܣ�����������д���ͣ�</p>
-<ol>
-<li><strong>ȫ�µĽ������</strong> ���������ȫ�µ�д�����飻</li>
-<li>�ڴ�������������ϲ���Ĵ��������ʽ��Markdown <strong>������Ƭ��ʾѡ��ĸ�����ʽ</strong> ����չʾ��</li>
-<li>������ <strong>ͼƬ��ק</strong> ���ܣ�����Խ����ص�ͼƬֱ����ק���༭����ֱ��չʾ��</li>
-<li>ȫ�µ� <strong>KaTeX��ѧ��ʽ</strong> �﷨��</li>
-<li>������֧��<strong>����ͼ��mermaid�﷨<a href="[mermaid�﷨˵��](https://mermaidjs.github.io/)">^1</a></strong> ���ܣ�</li>
-<li>������ <strong>����Ļ�༭</strong> Markdown���¹��ܣ�</li>
-<li>������ <strong>����д��ģʽ��Ԥ��ģʽ�����д��ģʽ����������ͬ����������</strong> �ȹ��ܣ����ܰ�ťλ�ڱ༭������Ԥ�������м䣻</li>
-<li>������ <strong>����б�</strong> ���ܡ�</li>
-</ol>
-<h2 id="���ܿ�ݼ�"><a href="#���ܿ�ݼ�" class="headerlink" title="���ܿ�ݼ�"></a>���ܿ�ݼ�</h2><p>������<kbd>Ctrl/Command</kbd> + <kbd>Z</kbd><br>������<kbd>Ctrl/Command</kbd> + <kbd>Y</kbd><br>�Ӵ֣�<kbd>Ctrl/Command</kbd> + <kbd>B</kbd><br>б�壺<kbd>Ctrl/Command</kbd> + <kbd>I</kbd><br>���⣺<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd><br>�����б���<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd><br>�����б���<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd><br>����б���<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd><br>������룺<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd><br>�������ӣ�<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd><br>����ͼƬ��<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd></p>
-<h2 id="�����J������⣬������L¼������"><a href="#�����J������⣬������L¼������" class="headerlink" title="�����Ĵ������⣬������Ŀ¼������"></a>�����Ĵ������⣬������Ŀ¼������</h2><p>ֱ������1��<kbd>#</kbd>��������<kbd>space</kbd>�󣬽�����1�����⡣<br>����2��<kbd>#</kbd>��������<kbd>space</kbd>�󣬽�����2�����⡣<br>�Դ����ƣ�����֧��6�����⡣������ʹ��<code>TOC</code>�﷨������һ��������Ŀ¼��</p>
-<h2 id="��θi��i�����ʽ"><a href="#��θi��i�����ʽ" class="headerlink" title="��θı��ı�����ʽ"></a>��θı��ı�����ʽ</h2><p><em>ǿ���ı�</em> <em>ǿ���ı�</em></p>
-<p><strong>�Ӵ��ı�</strong> <strong>�Ӵ��ı�</strong></p>
-<p>==����ı�==</p>
-<p><del>ɾ���ı�</del></p>
-<blockquote>
-<p>�����ı�</p>
-</blockquote>
-<p>H<del>2</del>O is��Һ�塣</p>
-<p>2^10^ �������� 1024.</p>
-<h2 id="����������ͼT"><a href="#����������ͼT" class="headerlink" title="����������ͼƬ"></a>����������ͼƬ</h2><p>����: <a href="https://mp.csdn.net" target="_blank" rel="noopener">link</a>.</p>
-<p>ͼƬ: <img src="https://avatar.csdn.net/7/7/B/1_ralf_hx163com.jpg" alt="Alt"></p>
-<p>���ߴ��ͼƬ: ![Alt](<a href="https://avatar.csdn.net/7/7/B/1_ralf_hx163com.jpg" target="_blank" rel="noopener">https://avatar.csdn.net/7/7/B/1_ralf_hx163com.jpg</a> =30x30)</p>
-<p>���е�ͼƬ: <img src="https://avatar.csdn.net/7/7/B/1_ralf_hx163com.jpg#pic_center" alt="Alt"></p>
-<p>���в��Ҵ��ߴ��ͼƬ: ![Alt](<a href="https://avatar.csdn.net/7/7/B/1_ralf_hx163com.jpg#pic_center" target="_blank" rel="noopener">https://avatar.csdn.net/7/7/B/1_ralf_hx163com.jpg#pic_center</a> =30x30)</p>
-<p>��Ȼ������Ϊ�����û����ӱ�ݣ�����������ͼƬ��ק���ܡ�</p>
-<h2 id="��β���һ��U���J���T"><a href="#��β���һ��U���J���T" class="headerlink" title="��β���һ��Ư���Ĵ���Ƭ"></a>��β���һ��Ư���Ĵ���Ƭ</h2><p>ȥ<a href="https://mp.csdn.net/configure" target="_blank" rel="noopener">��������</a>ҳ�棬ѡ��һ����ϲ���Ĵ���Ƭ������ʽ������չʾͬ�������� <code>����Ƭ</code>.</p>
-<pre><code class="javascript"><span class="comment">// An highlighted block</span>
-<span class="keyword">var</span> foo = <span class="string">'bar'</span>;</code></pre>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/23/changxi/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="ҳ�沼�֣���������ĵ�ʹ�ã�-diyi" class="article article-type-ҳ�沼�֣���������ĵ�ʹ�ã�  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/21/diyi/">��������</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/21/diyi/" class="archive-article-date">
-  	<time datetime="2019-11-21T11:17:38.142Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
-</a>
-        
-      </header>
-    
-	<!-- article自身代码 -->
-<header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/21/diyi/">��������</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/21/diyi/" class="archive-article-date">
-  	<time datetime="2019-11-21T11:17:38.142Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
-</a>
-        
-       
-	<!-- 添加代码 -->
-	
-      </header>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>������ժҪ</p>
-        
-          <a class="article-more-a" href="/2019/11/21/diyi/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">���±�ǩһ</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">���±�ǩ��</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/���·���//" class="article-tag-list-link color3">���·���</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/21/diyi/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-wenzhangbiaoti" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1310,14 +1192,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">���±�ǩһ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">���±�ǩ��</a>
-              </li>
             
             <div class="clearfix"></div>
           </ul>
