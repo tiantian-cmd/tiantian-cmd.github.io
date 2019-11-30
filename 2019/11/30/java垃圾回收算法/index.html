@@ -6,13 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/11 | Dengkang</title>
+  <title>java垃圾回收算法 | Dengkang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Dengkang">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;11&#x2F;index.html">
+  <meta name="description" content="垃圾回收算法概述JAVA 并没有给我们提供明确的代码来标注一块内存并将其回收。或许你会说，我们可以将相关对象设为 null 或者用 System.gc()。然而，后者将会严重影响代码的性能，因为一般每一次显式的调用 system.gc() 都会停止所有响应，去检查内存中是否有可回收的对象。这会对程序的正常运行造成极大的威胁。另外，调用该方法并不能保证 JVM 立即进行垃圾回收，仅仅是通知 JVM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java垃圾回收算法">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;30&#x2F;java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95&#x2F;index.html">
 <meta property="og:site_name" content="Dengkang">
+<meta property="og:description" content="垃圾回收算法概述JAVA 并没有给我们提供明确的代码来标注一块内存并将其回收。或许你会说，我们可以将相关对象设为 null 或者用 System.gc()。然而，后者将会严重影响代码的性能，因为一般每一次显式的调用 system.gc() 都会停止所有响应，去检查内存中是否有可回收的对象。这会对程序的正常运行造成极大的威胁。另外，调用该方法并不能保证 JVM 立即进行垃圾回收，仅仅是通知 JVM">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-30T11:18:14.165Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Dengkang" type="application/atom+xml">
@@ -153,295 +156,193 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-java垃圾回收算法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      java垃圾回收算法
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/30/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/" class="archive-article-date">
+
+        
+        <a href="/2019/11/30/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/" class="archive-article-date">
   	<time datetime="2019-11-30T11:18:06.602Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
 </a>
-        </div>
-    	 
+        
+      </header>
+    
+	<!-- article自身代码 -->
+<header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/30/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/">java垃圾回收算法</a>
+    <h1 class="article-title" itemprop="name">
+      java垃圾回收算法
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/30/VR%E5%92%8CAR%E6%8A%80%E6%9C%AF/" class="archive-article-date">
-  	<time datetime="2019-11-30T06:39:40.607Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
+        
+        <a href="/2019/11/30/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2019-11-30T11:18:06.602Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/30/VR%E5%92%8CAR%E6%8A%80%E6%9C%AF/">VR和AR技术</a>
-    </h1>
-  
+        
+       
+	<!-- 添加代码 -->
+	
+		<span class="archive-article-date">
+			阅读量 <span id="busuanzi_value_page_pv"></span>
+		</span>
+	
+      </header>
 
-        <div class="article-info info-on-right">
-          
-          
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="垃圾回收算法概述"><a href="#垃圾回收算法概述" class="headerlink" title="垃圾回收算法概述"></a>垃圾回收算法概述</h2><p>JAVA 并没有给我们提供明确的代码来标注一块内存并将其回收。或许你会说，我们可以将相关对象设为 null 或者用 System.gc()。然而，后者将会严重影响代码的性能，因为一般每一次显式的调用 system.gc() 都会停止所有响应，去检查内存中是否有可回收的对象。这会对程序的正常运行造成极大的威胁。另外，调用该方法并不能保证 JVM 立即进行垃圾回收，仅仅是通知 JVM 要进行垃圾回收了，具体回收与否完全由 JVM 决定。这样做是费力不讨好。</p>
+<pre><code>1、追踪回收算法、    从根结点开始遍历对象的应用图。同时标记遍历到的对象。遍历完成后，没有被标记的对象就是目前未被引用，可以被回收。
 
+2、压缩回收算法
+
+把堆中活动的对象集中移动到堆的一端，就会在堆的另一端流出很大的空闲区域。这种处理简化了消除碎片的工作，但可能带来性能的损失。
+
+3、复制回收算法</code></pre><p>把堆均分成两个大小相同的区域，只使用其中的一个区域，直到该区域消耗完。此时垃圾回收器终端程序的执行，通过遍历把所有活动的对象复制到另一个区域，复制过程中它们是紧挨着布置的，这样也可以达到消除内存碎片的目的。复制结束后程序会继续运行，直到该区域被用完。 </p>
+<p>但是，这种方法有两个缺陷:</p>
+<p>对于指定大小的堆，需要两倍大小的内存空间，</p>
+<p>需要中断正在执行的程序，降低了执行效率</p>
+<pre><code>4、按代回收算法
+
+为什么要按代进行回收？这是因为不同对象生命周期不同，每次回收都要遍历所有存活对象，对于整个堆内存进行回收无疑浪费了大量时间，对症下药可以提高垃圾回收的效率。主要思路是：把堆分成若搞个子堆，每个子堆视为一代，算法在运行的过程中优先收集“年幼”的对象，如果某个对象经过多次回收仍然“存活”,就移动到高一级的堆，减少对其扫描次数。
+1）标记-清楚算法：前后先标记出所有需要回收的对象，在标记完成后统一回收有被标记的对象。</code></pre><p>2）复制算法：将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当一块内存用完了，将其存在另外一块上面，然后再把已使用过的内存空间一次清理掉。</p>
+<p>3）标记-整理算法：标记过程与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所一端移动，然后直接清理掉端边界以外的内存。</p>
+<p>4）分代收集算法：一般是把Java堆分为新生代和老年代，根据各个年代的特点采用最适当的收集算法。新生代都发现有大批对象死去，选用复制算法。老年代中因为对象存活率高，必须使用“标记-清理”或“标记-整理”算法来进行回收。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MyObject object1 = <span class="keyword">new</span> MyObject();</span><br><span class="line">        MyObject object2 = <span class="keyword">new</span> MyObject();</span><br><span class="line">         </span><br><span class="line">        object1.object = object2;</span><br><span class="line">        object2.object = object1;</span><br><span class="line">         </span><br><span class="line">        object1 = <span class="keyword">null</span>;</span><br><span class="line">        object2 = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+
+<!-- article.ejs自身代码-->
+<span id="busuanzi_container_page_pv">
+   		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	    </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/30/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/29/java%E7%90%86%E8%A7%A3%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2019-11-29T12:34:04.390Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-29</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/30/VR%E5%92%8CAR%E6%8A%80%E6%9C%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">VR和AR技术</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/29/java%E7%90%86%E8%A7%A3%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/">java理解哈夫曼树</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/28/java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%BF%83%E5%BE%97/" class="archive-article-date">
-  	<time datetime="2019-11-28T12:15:05.609Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/28/java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%BF%83%E5%BE%97/">java数据结构与算法心得</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/26/python%E7%9A%84turtle%E5%BA%93/" class="archive-article-date">
-  	<time datetime="2019-11-26T02:29:03.978Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/26/python%E7%9A%84turtle%E5%BA%93/">python的turtle库</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/24/python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%99%BB%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2019-11-24T11:00:33.331Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/24/python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%99%BB%E5%BD%95/">python自动化登录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/24/python%E7%88%AC%E8%99%AB%E7%9A%84%E6%80%9D%E8%B7%AF/" class="archive-article-date">
-  	<time datetime="2019-11-24T10:24:58.619Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/24/python%E7%88%AC%E8%99%AB%E7%9A%84%E6%80%9D%E8%B7%AF/">python爬虫的思路</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/24/wordpress%E5%92%8Cphpstudy%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/" class="archive-article-date">
-  	<time datetime="2019-11-24T04:30:27.082Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/24/wordpress%E5%92%8Cphpstudy%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/">wordpress和phpstudy搭建网站</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/23/%E6%88%91%E5%AF%B9%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86java%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
-  	<time datetime="2019-11-23T08:04:36.378Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/23/%E6%88%91%E5%AF%B9%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86java%E5%AE%9E%E7%8E%B0/">我对数据结构树的遍历java实现</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/23/%E6%AC%A2%E8%BF%8E%E4%BD%BF%E7%94%A8CSDN-markdown%E7%BC%96%E8%BE%91%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2019-11-23T04:37:50.766Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/23/%E6%AC%A2%E8%BF%8E%E4%BD%BF%E7%94%A8CSDN-markdown%E7%BC%96%E8%BE%91%E5%99%A8/">欢迎使用CSDN-markdown编辑器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/11/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/11/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -469,8 +370,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

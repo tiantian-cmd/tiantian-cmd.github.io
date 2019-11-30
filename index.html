@@ -155,6 +155,109 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-java垃圾回收算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/30/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/">java垃圾回收算法</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/30/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2019-11-30T11:18:06.602Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
+</a>
+        
+      </header>
+    
+	<!-- article自身代码 -->
+<header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/30/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/">java垃圾回收算法</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/30/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2019-11-30T11:18:06.602Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
+</a>
+        
+       
+	<!-- 添加代码 -->
+	
+      </header>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="垃圾回收算法概述"><a href="#垃圾回收算法概述" class="headerlink" title="垃圾回收算法概述"></a>垃圾回收算法概述</h2><p>JAVA 并没有给我们提供明确的代码来标注一块内存并将其回收。或许你会说，我们可以将相关对象设为 null 或者用 System.gc()。然而，后者将会严重影响代码的性能，因为一般每一次显式的调用 system.gc() 都会停止所有响应，去检查内存中是否有可回收的对象。这会对程序的正常运行造成极大的威胁。另外，调用该方法并不能保证 JVM 立即进行垃圾回收，仅仅是通知 JVM 要进行垃圾回收了，具体回收与否完全由 JVM 决定。这样做是费力不讨好。</p>
+<pre><code>1、追踪回收算法、    从根结点开始遍历对象的应用图。同时标记遍历到的对象。遍历完成后，没有被标记的对象就是目前未被引用，可以被回收。
+
+2、压缩回收算法
+
+把堆中活动的对象集中移动到堆的一端，就会在堆的另一端流出很大的空闲区域。这种处理简化了消除碎片的工作，但可能带来性能的损失。
+
+3、复制回收算法</code></pre><p>把堆均分成两个大小相同的区域，只使用其中的一个区域，直到该区域消耗完。此时垃圾回收器终端程序的执行，通过遍历把所有活动的对象复制到另一个区域，复制过程中它们是紧挨着布置的，这样也可以达到消除内存碎片的目的。复制结束后程序会继续运行，直到该区域被用完。 </p>
+<p>但是，这种方法有两个缺陷:</p>
+<p>对于指定大小的堆，需要两倍大小的内存空间，</p>
+<p>需要中断正在执行的程序，降低了执行效率</p>
+<pre><code>4、按代回收算法
+
+为什么要按代进行回收？这是因为不同对象生命周期不同，每次回收都要遍历所有存活对象，对于整个堆内存进行回收无疑浪费了大量时间，对症下药可以提高垃圾回收的效率。主要思路是：把堆分成若搞个子堆，每个子堆视为一代，算法在运行的过程中优先收集“年幼”的对象，如果某个对象经过多次回收仍然“存活”,就移动到高一级的堆，减少对其扫描次数。
+1）标记-清楚算法：前后先标记出所有需要回收的对象，在标记完成后统一回收有被标记的对象。</code></pre><p>2）复制算法：将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当一块内存用完了，将其存在另外一块上面，然后再把已使用过的内存空间一次清理掉。</p>
+<p>3）标记-整理算法：标记过程与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所一端移动，然后直接清理掉端边界以外的内存。</p>
+<p>4）分代收集算法：一般是把Java堆分为新生代和老年代，根据各个年代的特点采用最适当的收集算法。新生代都发现有大批对象死去，选用复制算法。老年代中因为对象存活率高，必须使用“标记-清理”或“标记-整理”算法来进行回收。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MyObject object1 = <span class="keyword">new</span> MyObject();</span><br><span class="line">        MyObject object2 = <span class="keyword">new</span> MyObject();</span><br><span class="line">         </span><br><span class="line">        object1.object = object2;</span><br><span class="line">        object2.object = object1;</span><br><span class="line">         </span><br><span class="line">        object1 = <span class="keyword">null</span>;</span><br><span class="line">        object2 = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/30/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-VR和AR技术" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1089,90 +1192,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/11/23/%E6%AC%A2%E8%BF%8E%E4%BD%BF%E7%94%A8CSDN-markdown%E7%BC%96%E8%BE%91%E5%99%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-wenzhangbiaoti" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/21/wenzhangbiaoti/">wenzhangbiaoti</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/21/wenzhangbiaoti/" class="archive-article-date">
-  	<time datetime="2019-11-21T09:28:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
-</a>
-        
-      </header>
-    
-	<!-- article自身代码 -->
-<header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/21/wenzhangbiaoti/">wenzhangbiaoti</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/21/wenzhangbiaoti/" class="archive-article-date">
-  	<time datetime="2019-11-21T09:28:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
-</a>
-        
-       
-	<!-- 添加代码 -->
-	
-      </header>
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/21/wenzhangbiaoti/">展开全文 >></a>
         </p>
       
 
