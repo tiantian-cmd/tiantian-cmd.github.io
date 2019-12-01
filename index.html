@@ -155,6 +155,95 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-java实现分治算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/01/java%E5%AE%9E%E7%8E%B0%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/">java实现分治算法</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/01/java%E5%AE%9E%E7%8E%B0%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2019-12-01T08:53:22.272Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-01</time>
+</a>
+        
+      </header>
+    
+	<!-- article自身代码 -->
+<header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/01/java%E5%AE%9E%E7%8E%B0%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/">java实现分治算法</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/01/java%E5%AE%9E%E7%8E%B0%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2019-12-01T08:53:22.272Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-01</time>
+</a>
+        
+       
+	<!-- 添加代码 -->
+	
+      </header>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="分治算法"><a href="#分治算法" class="headerlink" title="分治算法"></a>分治算法</h2><p>   在计算机科学中，分治法是一种很重要的算法。字面上的解释是“分而治之”，就是把一个复杂的问题分成两个或更多的相同或相似的子问题，再把子问题分成更小的子问题……直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并。这个技巧是很多高效算法的基础，如排序算法(快速排序，归并排序)，傅立叶变换(快速傅立叶变换)。<br>   任何一个可以用计算机求解的问题所需的计算时间都与其规模有关。问题的规模越小，越容易直接求解，解题所需的计算时间也越少。例如，对于n个元素的排序问题，当n=1时，不需任何计算。n=2时，只要作一次比较即可排好序。n=3时只要作3次比较即可，…。而当n较大时，问题就不那么容易处理了。要想直接解决一个规模较大的问题，有时是相当困难的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> suanfa;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Feb</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数说明：在数组被拆分以后进行合并</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> left, <span class="keyword">int</span> middle, <span class="keyword">int</span> rigth)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//定义左端数组大小</span></span><br><span class="line">        <span class="keyword">int</span> n1 = middle - left+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> n2 = rigth - middle;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//初始化数组，分配内存</span></span><br><span class="line">        <span class="keyword">int</span> bejin[] = <span class="keyword">new</span> <span class="keyword">int</span>[n1];</span><br><span class="line">        <span class="keyword">int</span> end[] = <span class="keyword">new</span> <span class="keyword">int</span>[n2];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//数组赋值</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n1; i++)</span><br><span class="line">            bejin[i] = a[left + i];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n2; i++)</span><br><span class="line">            end[i] = a[middle+<span class="number">1</span>+i];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//用key做原数组索引，没调用一次函数重新给原数组付一次值</span></span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>, key;</span><br><span class="line">        <span class="keyword">for</span>(key = left; key &lt;= rigth; key++)&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(n1&gt;i&amp;&amp;n2&gt;j&amp;&amp;i &lt; n1 &amp;&amp; bejin[i] &lt;= end[j])</span><br><span class="line">                a[key] = bejin[i++];</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(n1&gt;i&amp;&amp;n2&gt;j&amp;&amp;j &lt; n2 &amp;&amp; bejin[i] &gt;= end[j])</span><br><span class="line">                a[key] = end[j++];</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(i == n1 &amp;&amp; j &lt; n2)</span><br><span class="line">                a[key] = end[j++];</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(j == n2 &amp;&amp; i &lt; n1)</span><br><span class="line">                a[key] = bejin[i++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 差分数组区间，不断分支</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> left,<span class="keyword">int</span> rigth)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> middle=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(left&lt;rigth) &#123;</span><br><span class="line">            middle =(rigth+left)/<span class="number">2</span>;</span><br><span class="line">            MergeSort(a, left, middle);</span><br><span class="line">            MergeSort(a, middle+<span class="number">1</span>, rigth);</span><br><span class="line">            Merge(a, left, middle, rigth);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a[]= &#123;<span class="number">85</span>,<span class="number">3</span>,<span class="number">52</span>,<span class="number">9</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">4</span>&#125;;</span><br><span class="line">        MergeSort(a, <span class="number">0</span>,<span class="number">7</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">8</span>;i++) &#123;</span><br><span class="line">            System.out.print(<span class="string">" "</span>+a[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是一个分治的合并算法。主要思路就是把数组分为两段排序后合并。<br><strong>分治快速排序</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 分治<span class="title">_</span>快速排序 </span>&#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 *交换函数，i，j为数组索引</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">	    <span class="keyword">int</span> temp = A[i];</span><br><span class="line">	    A[i] = A[j];</span><br><span class="line">	    A[j] = temp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 选取一个关键字(key)作为枢轴，一般取整组记录的第一个数/最后一个，这里采用选取序列最后一个数为枢轴。</span></span><br><span class="line"><span class="comment">	 * 设置两个变量left = 0;right = N - 1;</span></span><br><span class="line"><span class="comment">	 * 从left一直向后走，直到找到一个大于key的值，right从后至前，直至找到一个小于key的值，然后交换这两个数。</span></span><br><span class="line"><span class="comment">	 * 重复第三步，一直往后找，直到left和right相遇，这时将key放置left的位置即可。</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">PartSort</span><span class="params">(<span class="keyword">int</span>[] array,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">	    <span class="keyword">int</span> key = array[right];<span class="comment">//定义基准 </span></span><br><span class="line">	    <span class="keyword">int</span> count=right;<span class="comment">//保存rigth值</span></span><br><span class="line">	    <span class="keyword">while</span>(left &lt; right)<span class="comment">//防止数组越界</span></span><br><span class="line">	    &#123;</span><br><span class="line">	        <span class="keyword">while</span>(left &lt; right &amp;&amp; array[left] &lt;= key)</span><br><span class="line">	        &#123;</span><br><span class="line">	            ++left;</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="keyword">while</span>(left &lt; right &amp;&amp; array[right] &gt;= key)</span><br><span class="line">	        &#123;</span><br><span class="line">	            --right;</span><br><span class="line">	        &#125;</span><br><span class="line">	        swap(array,left,right);</span><br><span class="line">	    &#125;</span><br><span class="line">	    swap(array,right,count);</span><br><span class="line">	    <span class="keyword">return</span> right;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 *分治思想，递归调用</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(<span class="keyword">int</span> array[],<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">	    <span class="keyword">if</span>(left &gt;= right)<span class="comment">//表示已经完成一个组</span></span><br><span class="line">	    &#123;</span><br><span class="line">	        <span class="keyword">return</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">int</span> index = PartSort(array,left,right);<span class="comment">//枢轴的位置</span></span><br><span class="line">	    QuickSort(array,left,index - <span class="number">1</span>);</span><br><span class="line">	    QuickSort(array,index + <span class="number">1</span>,right);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> a[]= &#123;<span class="number">1</span>,<span class="number">5</span>,-<span class="number">5</span>,<span class="number">54</span>,<span class="number">15</span>,<span class="number">67</span>,<span class="number">16</span>,<span class="number">23</span>&#125;;</span><br><span class="line">		QuickSort(a,<span class="number">0</span>,<span class="number">7</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;a.length;i++) &#123;</span><br><span class="line">			System.out.print(<span class="string">" "</span>+a[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	    System.out.print(<span class="string">"\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>作为分治法里很典型的一种算法，合并排序和快速排序充分展现了分治法的思想，分而治之，在此次编程使用此方法中，给我的体会是程序简单分为两部分，第一部分，不断“拆”，缩小子问题规模，达到最优子结构。然后合并，在合并过程中，应为子问题足够小，容易计算，再者不断合并子问题答案，最终求出问题解</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/01/java%E5%AE%9E%E7%8E%B0%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-kali做简单木马" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -997,117 +1086,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/11/24/wordpress%E5%92%8Cphpstudy%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-我对数据结构树的遍历java实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/23/%E6%88%91%E5%AF%B9%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86java%E5%AE%9E%E7%8E%B0/">我对数据结构树的遍历java实现</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/23/%E6%88%91%E5%AF%B9%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86java%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
-  	<time datetime="2019-11-23T08:04:36.378Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-23</time>
-</a>
-        
-      </header>
-    
-	<!-- article自身代码 -->
-<header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/23/%E6%88%91%E5%AF%B9%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86java%E5%AE%9E%E7%8E%B0/">我对数据结构树的遍历java实现</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/23/%E6%88%91%E5%AF%B9%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86java%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
-  	<time datetime="2019-11-23T08:04:36.378Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-23</time>
-</a>
-        
-       
-	<!-- 添加代码 -->
-	
-      </header>
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="这是java树的遍历"><a href="#这是java树的遍历" class="headerlink" title="这是java树的遍历"></a>这是java树的遍历</h3><h2 id="我是小西瓜学java"><a href="#我是小西瓜学java" class="headerlink" title="我是小西瓜学java"></a>我是小西瓜学java</h2><p>   <strong>我现在通过java来演示</strong><br>   <img src="https://img-blog.csdn.net/20160514151139043" alt="在这里插入图片搜索描述"></p>
-<p><strong>先序遍历如下</strong><br>首先定义一个树节点的数据结构</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode left;</span><br><span class="line">    TreeNode right;</span><br><span class="line">    TreeNode(<span class="keyword">int</span> x)&#123;</span><br><span class="line">        val=x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"val: "</span>+val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当然我们也可以定义一个接口来访问这个数据结构，<strong>在这里小西瓜就不跟大家做深入讨论了</strong><br><strong>对于前序遍历有递归和非递归</strong><br>接下来先讲递归</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 递归先序遍历</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preOrderRecursion</span><span class="params">(TreeNode node)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(node==<span class="keyword">null</span>) <span class="comment">//如果结点为空则返回</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    visit(node);<span class="comment">//访问根节点</span></span><br><span class="line">    preOrderRecursion(node.left);<span class="comment">//访问左孩子</span></span><br><span class="line">    preOrderRecursion(node.right);<span class="comment">//访问右孩子</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>原理是根左右的遍历顺序，直至为空,<br><strong>非递归遍历</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 非递归先序遍历二叉树</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; resultList=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    Stack&lt;TreeNode&gt; treeStack=<span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    <span class="keyword">if</span>(root==<span class="keyword">null</span>) <span class="comment">//如果为空树则返回</span></span><br><span class="line">        <span class="keyword">return</span> resultList;</span><br><span class="line">    treeStack.push(root);</span><br><span class="line">    <span class="keyword">while</span>(!treeStack.isEmpty())&#123;</span><br><span class="line">        TreeNode tempNode=treeStack.pop(); </span><br><span class="line">        <span class="keyword">if</span>(tempNode!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            resultList.add(tempNode.val);<span class="comment">//访问根节点</span></span><br><span class="line">            treeStack.push(tempNode.right); <span class="comment">//入栈右孩子</span></span><br><span class="line">            treeStack.push(tempNode.left);<span class="comment">//入栈左孩子</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> resultList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个就有点难度了，为啥这样讲呢？这个通过压栈进栈的算法，其实这就像深度优先探索算法。挺有深度的。跟何况我在代码里把注释都写了。<br><strong>前序遍历结果</strong><br>对于图中二叉树而言其前序遍历结果为：6 2 0 1 4 5 8 9<br>二叉树的前序遍历即先遍历根结点再遍历左结点最后遍历右结点。<br><em>算了，直接上代码吧</em><br><strong>中序遍历</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">inOrder</span><span class="params">(TreeNode t)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(t != <span class="keyword">null</span>) &#123;</span><br><span class="line">			inOrder(t.left);</span><br><span class="line">			System.out.println(t.val);</span><br><span class="line">			inOrder(t.right);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>非递归算法</strong></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">inOrder1</span><span class="params">(TreeNode t)</span> </span>&#123;</span><br><span class="line">	TreeNode p = t;     <span class="comment">//定义一个用来遍历的指针</span></span><br><span class="line">	Stack&lt;TreeNode&gt; s = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">	<span class="keyword">while</span>(p != <span class="keyword">null</span> || !s.empty())&#123;</span><br><span class="line">		<span class="keyword">if</span>(p != <span class="keyword">null</span>)&#123;</span><br><span class="line">			s.push(p);</span><br><span class="line">			p = p.left;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			p = s.pop();</span><br><span class="line">			System.out.println(p.val);</span><br><span class="line">			p = p.right;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>还是那句话，先画图，在理解代码，这样脑子里有规划</p>
-</blockquote>
-<ul>
-<li><input disabled="" type="checkbox"> 接下将后序遍历</li>
-<li><input disabled="" type="checkbox"> 这个基于后缀表达式的理解挺重要的</li>
-</ul>
-<p><strong>递归算法</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postOrder</span><span class="params">(TreeNode t)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(t != <span class="keyword">null</span>) &#123;</span><br><span class="line">			postOrder(t.left);</span><br><span class="line">			postOrder(t.right);</span><br><span class="line">			System.out.println(t.val);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>非递归算法</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postOrder1</span><span class="params">(TreeNode t)</span> </span>&#123;</span><br><span class="line">	TreeNode p = t;     <span class="comment">//定义一个用来遍历的指针</span></span><br><span class="line">	TreeNode r = <span class="keyword">null</span>;  <span class="comment">//辅助指针r指向最近一次访问过的节点</span></span><br><span class="line">	Stack&lt;TreeNode&gt; s = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">	<span class="keyword">do</span> &#123;</span><br><span class="line">		<span class="keyword">while</span>(p != <span class="keyword">null</span>) &#123;</span><br><span class="line">			s.push(p);</span><br><span class="line">			p = p.left;</span><br><span class="line">		&#125;</span><br><span class="line">		p = s.peek();  <span class="comment">//右节点还未访问, 所以此时只是瞄一眼, 还不能取出栈顶元素</span></span><br><span class="line">		<span class="keyword">if</span>(p.right != <span class="keyword">null</span> &amp;&amp; p.right != r) &#123;</span><br><span class="line">			p = p.right;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;        <span class="comment">//不存在右节点或者右节点已被访问时 才能访问根节点</span></span><br><span class="line">			p = s.pop();</span><br><span class="line">			System.out.println(p.val);</span><br><span class="line">			r = p;</span><br><span class="line">			p = <span class="keyword">null</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="keyword">while</span>(!s.empty());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/20191123160351447.png" alt="在这里插入图片描述"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/23/%E6%88%91%E5%AF%B9%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86java%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
         </p>
       
 
